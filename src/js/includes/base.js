@@ -20,19 +20,46 @@ const paintButtons = () => {
     });
 }
 
+const grabData = () => {
+    const alimentoOrigen = mainEl.querySelector('#alimento-origen').value;
+    const alimentoSubstituto = mainEl.querySelector('#alimento-substituto').value;
+    const cantidad = mainEl.querySelector('#cantidad').value;
+    return {
+        alimentoOrigen,
+        alimentoSubstituto,
+        cantidad
+    }
+}
+
 const paintAlimentosFromGroup = (group) => {
     alimentos = getAlimentosFromGroup(group);
     const alimentosHTML = alimentos.map((alimento) => {
-        return `<div class="alimento">
-                    <p>${alimento.alimento}</p>
-                    <p>${alimento.cantidad}</p>
-                </div>`
+        return `<option value="${alimento.alimento}">${alimento.alimento}</option>`;
     });
-    mainEl.innerHTML = `<div class="alimentos-wrapper">${alimentosHTML.join('')}</div>`;
-    mainEl.insertAdjacentHTML('beforeend', `<button class="btn btn-primary btn-block">Volver</button>`);
-    mainEl.querySelector('button').addEventListener('click', () => {
-        paintButtons();
-    });
+    mainEl.innerHTML = `<div class="alimentos-wrapper">
+            <div class="form-group">
+                <label for="alimento-origen">Alimento original</label>
+                <select class="form-control" id="alimento-origen">${alimentosHTML.join('')}</select>
+            </div>
+            <div class="form-group">
+                <label for="alimento-substituto">Alimento a reemplazar</label>
+                <select class="form-control" id="alimento-substituto">${alimentosHTML.join('')}</select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad del original</label>
+                <input type="number" class="form-control" id="cantidad" placeholder="Cantidad sin unidad de medida">
+            </div>
+        </div>
+        <div class="calculator-buttons">
+            <button class="btn btn-primary btn-block btn-go-calculate">Calcular</button>
+            <button class="btn btn-primary btn-block btn-go-back">Volver</button>
+        </div>`;
+        mainEl.querySelector('button.btn-go-back').addEventListener('click', () => {
+            paintButtons();
+        });
+        mainEl.querySelector('button.btn-go-calculate').addEventListener('click', () => {
+            console.log(grabData());
+        });
 }
 
 export { initApp }
