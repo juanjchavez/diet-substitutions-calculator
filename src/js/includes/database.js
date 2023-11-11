@@ -1,120 +1,180 @@
-const vocabulary = [
-    {"word":"Ἀβραὰμ (ὁ)","translation":"Abraham"},
-    {"word":"ἀδελφός","translation":"Hermano"},
-    {"word":"Ἀγάπη (ἡ)","translation":"Amor"},
-    {"word":"ἄγιος","translation":"Santo"},
-    {"word":"αἶμα","translation":"Sangre"},
-    {"word":"ἄλλος","translation":"Otro, Algún otro"},
-    {"word":"ἁμαρτία","translation":"Pecado"},
-    {"word":"ἀμήν","translation":"Ciertamente, en verdad, Amen"},
-    /* {"word":"Ἄγγελος (ὁ)","translation":"mensajero, ángel"},
-    {"word":"Ἄνθρωπος (ὁ)","translation":"Hombre, humanidad, persona, ser humano"},
-    {"word":"Ἀπόστολος (ὁ)","translation":"Apostol, enviado, mensajero"},
-    {"word":"αὐτός,  αὐτή, αὐτό","translation":"Pronombre el, ella, ella, ellos, ellas"},
-    {"word":"βασιλεία (ἡ)","translation":"reino"},
-    {"word":"Γαλιλαία (ἡ)","translation":"Galilea"},
-    {"word":"γλῶσσα","translation":"Lengua, idioma"},
-    {"word":"Γραφή (ἡ)","translation":"escritura"},
-    {"word":"Δαῦίδ","translation":"David"},
-    {"word":"δέ","translation":"pero, y, mas"},
-    {"word":"δόξα (ἡ)","translation":"Gloria,majestad, fama"},
-    {"word":"ἐγώ","translation":"Yo"},
-    {"word":"εἰμί","translation":"Soy, existo, vivo, estoy presente"},
-    {"word":"ἐκκλησία","translation":"Iglesia, asamblea, congregación"},
-    {"word":"ἐν","translation":"en, sobre"},
-    {"word":"ἔργον (τό)","translation":"obra, trabajo, acción"},
-    {"word":"ἔσχατος","translation":"último"},
-    {"word":"ἐστίν","translation":"es, está, existe"},
-    {"word":"εὐαγγέλιον","translation":"Buenas nuevas, Evangelio"},
-    {"word":"ζωή (ἡ)","translation":"Vida"},
-    {"word":"ἦν","translation":"Era, estaba, existía"},
-    {"word":"θάνατος","translation":"muerte"},
-    {"word":"Θεός (ὁ)","translation":"Dios, deidad"},
-    {"word":"θρόνος","translation":"Trono"},
-    {"word":"Ἰησοῦς","translation":"Jesús"},
-    {"word":"Ἰσραήλ","translation":"Israel"},
-    {"word":"καί","translation":"Y, aún, también"},
-    {"word":"καιρός (ὁ)","translation":"Tiempo, estación, era"},
-    {"word":"καρδία","translation":"Corazón, ser interior"},
-    {"word":"κόσμος (ὁ)","translation":"Universo, mundo, humanidad"},
-    {"word":"λίθος","translation":"Piedra"},
-    {"word":"λόγος (ὁ)","translation":"Palabra, declaración, mensaje"},
-    {"word":"μέγας","translation":"Grande"},
-    {"word":"μήτηρ","translation":"madre"},
-    {"word":"Μωϋσῆς","translation":"Moises"},
-    {"word":"νόμος","translation":"ley"},
-    {"word":"νῦν","translation":"Adv. Ahora, Sust. Presente"},
-    {"word":"ὁ, ἡ, τό","translation":"art. el, la, lo"},
-    {"word":"ὅτι","translation":"que, desde, porque"},
-    {"word":"οὐ, οὐκ, οὐχ","translation":"no"},
-    {"word":"παραβολή","translation":"Parábola"},
-    {"word":"πατήρ","translation":"Padre"},
-    {"word":"Παῦλος (ὁ)","translation":"Pablo"},
-    {"word":"Πέτρος (ὁ)","translation":"Pedro"},
-    {"word":"Πιλᾶτος (ὁ)","translation":"Pilato"},
-    {"word":"πνεῦμα (τό)","translation":"Espíritu, soplo, viento, vida eterna"},
-    {"word":"πρεσβύτερος","translation":"Anciano"},
-    {"word":"προφήτης (ὁ)","translation":"Profeta"},
-    {"word":"πῦρ","translation":"fuego"},
-    {"word":"σάββατον (τό)","translation":"Sábado"},
-    {"word":"Σίμων (ὁ)","translation":"Simón"},
-    {"word":"ὕδωρ","translation":"Agua"},
-    {"word":"φαρισαῖος","translation":"Fariseo"},
-    {"word":"φωνή (ἡ)","translation":"Sonido, ruido, voz"},
-    {"word":"Χριστός (ὁ)","translation":"Cristo, mesías, el ungido"},
-    {"word":"ψυχή","translation":"Alma, vida, ser"},
-    {"word":"ὥρα (ή)","translation":"hora, ocasión, momento"} */
+const dictionary = [
+    {
+        title: "Proteina",
+        data: [
+            {
+                "alimento": "Queso Cottage",
+                "cantidad": "245g"
+            },
+            {
+                "alimento": "Salmón cocido",
+                "cantidad": "125g"
+            },
+            {
+                "alimento": "Camarones cocidos",
+                "cantidad": "125g"
+            },
+            {
+                "alimento": "Sardinas en agua",
+                "cantidad": "120g"
+            },
+            {
+                "alimento": "Atún en agua",
+                "cantidad": "120g"
+            },
+            {
+                "alimento": "Lomo de cerdo magro cocido",
+                "cantidad": "110g"
+            },
+            {
+                "alimento": "Lomo de res magro cocido",
+                "cantidad": "110g"
+            },
+            {
+                "alimento": "Pechuga de pollo cocida",
+                "cantidad": "110g"
+            },
+            {
+                "alimento": "Claras de huevo",
+                "cantidad": "9 grandes"
+            },
+            {
+                "alimento": "Whey Protein",
+                "cantidad": "40g"
+            },
+        ]
+    },
+    {
+        title: "Carbohidratos",
+        data: [
+            {
+                "alimento": "Patata cocida",
+                "cantidad": "150g",
+            },
+            {
+                "alimento": "Lentejas cocidas",
+                "cantidad": "145g",
+            },
+            {
+                "alimento": "Choclo/Maíz",
+                "cantidad": "145g",
+            },
+            {
+                "alimento": "Frijoles negros o blancos cocidos",
+                "cantidad": "123g",
+            },
+            {
+                "alimento": "Bananas",
+                "cantidad": "120g",
+            },
+            {
+                "alimento": "Arroz integral cocido",
+                "cantidad": "120g",
+            },
+            {
+                "alimento": "Batata cocida",
+                "cantidad": "115g",
+            },
+            {
+                "alimento": "Quinoa cocida",
+                "cantidad": "105g",
+            },
+            {
+                "alimento": "Arroz blanco cocido",
+                "cantidad": "100g",
+            },
+            {
+                "alimento": "Pasta cocida",
+                "cantidad": "90g",
+            },
+            {
+                "alimento": "Plátano maduro cocido",
+                "cantidad": "85g",
+            },
+            {
+                "alimento": "Arepa hecha con harina de maíz precocida",
+                "cantidad": "85g",
+            },
+            {
+                "alimento": "Yuca cocida",
+                "cantidad": "75g",
+            },
+            {
+                "alimento": "Tortilla de maíz",
+                "cantidad": "62g",
+            },
+            {
+                "alimento": "Pan integral",
+                "cantidad": "60g",
+            },
+            {
+                "alimento": "Pan blanco",
+                "cantidad": "55g",
+            },
+            {
+                "alimento": "Tortilla de trigo",
+                "cantidad": "50g",
+            },
+            {
+                "alimento": "Hojuelas de avena crudas",
+                "cantidad": "47g",
+            }
+        ]
+    },
+    {
+        title: "Grasas",
+        data: [
+            {
+                "alimento":"Aguacate",
+                "cantidad": "100g",
+            },
+            {
+                "alimento":"Aceitunas verdes y negras",
+                "cantidad": "95g",
+            },
+            {
+                "alimento":"Semillas de chía",
+                "cantidad": "43g",
+            },
+            {
+                "alimento":"Semillas de linaza",
+                "cantidad": "35g",
+            },
+            {
+                "alimento":"Maní",
+                "cantidad": "29g",
+            },
+            {
+                "alimento":"Almendras",
+                "cantidad": "28g",
+            },
+            {
+                "alimento":"Semillas de sésamo",
+                "cantidad": "26g",
+            },
+            {
+                "alimento":"Nueces",
+                "cantidad": "22g",
+            },
+            {
+                "alimento":"Aceite de canola",
+                "cantidad": "1 cucharada",
+            },
+            {
+                "alimento":"Aceite de oliva",
+                "cantidad": "1 cucharada",
+            },
+        ]
+    }
+    
     ];
 
-    const getAnswer = (word) => {
-        if(word ==''){
-            return null;
-        }
-        const filteredVocabulary = vocabulary.filter( (el) => {
-            return (el.word == word);
-        } );
-        
-        if( filteredVocabulary.length > 0 ){
-            return filteredVocabulary[0].translation;
-        }else{
-            return null;
-        }
-    }
+const getTitles = () => {
+    return dictionary.map((item) => item.title);
+};
 
-    const getOptions = (word) => {
-        let index = 0;
-        let options = [];
-        while (index < 4) {
-            let random = randomNumber(0, vocabulary.length-1);
-            let value = vocabulary[random];
-            if(!options.includes(value.translation)){
-                options.push(value.translation);
-                index ++;
-            }else if(random - 1 >= 0){
-                let value = vocabulary[random - 1];
-                if(!options.includes(value.translation)){
-                    options.push(value.translation);
-                    index ++;
-                }else if(random + 1 <= vocabulary.length){
-                    let value = vocabulary[random + 1];
-                    if(!options.includes(value.translation)){
-                        options.push(value.translation);
-                        index ++;
-                    }
-                }
-            }
-                
-        }
-    
-        const answer = getAnswer(word);
-        if(!options.includes(answer)){
-            options[randomNumber(0,3)] = getAnswer(word);
-        }
-        return options;
-    }
+const getAlimentosFromGroup = (group) => {
+    return dictionary.find((item) => item.title === group).data;
+}    
 
-    function randomNumber(min, max) { 
-        return Math.floor(Math.random() * (max - min) + min);
-    } 
-
-    export {vocabulary, getAnswer, getOptions};
+export { getAlimentosFromGroup, getTitles };
