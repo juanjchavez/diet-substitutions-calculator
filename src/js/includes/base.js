@@ -6,6 +6,7 @@ const initApp = () => {
     paintButtons();
 }
 
+// this function creates the buttons for the groups
 const paintButtons = () => {
     const titles = getTitles();
     const buttons = titles.map((title) => {

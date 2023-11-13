@@ -1,88 +1,116 @@
-#greek-vocabullary-app{
+html, body {
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+}
+
+#diet-calculator{
     align-items: center;
+    background: rgb(75,89,89);
+    background: radial-gradient(circle, rgba(75,89,89,1) 22%, rgba(50,63,66,1) 72%);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    min-height: 50vh;
-    .word{
-        font-family: 'Noto Sans', sans-serif;
-        font-size: 48px;
-        line-height: 56px;
-        margin-bottom: 50px;
-    }
-    .options{
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    .group-buttons-wrapper{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap:20px;
-        a{
-            text-decoration: none;
-            display: block;
-            background-color: #276fb6;
-            color:#f2f2f2;
-            padding: 11px 20px;
-            border-radius: 8px;
-            text-align: center;
-            &:hover{
-                background-color: #215b95;
-            }
-            &.disabled{
-                background-color: #555;
-            }
-            &.fail{
-                text-decoration: line-through;
-                background-color: #b63127;
-            }
-            &.success{
-                background-color:#27b646;
-            }
+        gap: 15px;
+        grid-template-rows: repeat(3, 1fr);
+
+        button{
+            @extend %button_default;
         }
+
     }
-    .total{
-        margin-top: 20px;
-    }
-    .results{
-        font-size: 16px;
-        text-align: center;
-        .score{
-            padding-top: 10px;
-            display: block;
-            font-size: 25px;
-            line-height: 32px;
-        }
-    }
-    .table-wrapper{
+    .alimentos-wrapper{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        table.errors-table{
-            border-collapse: collapse;
-            border: 2px solid rgb(200, 200, 200);
-            font-size: 18px;
-            thead{
-                background-color: #276fb6;
-                color: #f2f2f2;
-            }
-            td{
-                border: 1px solid rgb(190, 190, 190);
-                padding: 5px 10px;
-            }
+        gap: 15px;
+        
+        label{
+            text-shadow: 0 0 3px rgba(255,255,255,0.2);
         }
+
+        input{
+            border-radius: 5px;
+            box-shadow: none;
+            color: #000;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            margin-top: 5px;
+            padding: 10px;
+            width: calc(100% - 20px);
+        }
+        
+        select {
+            appearance: none;
+            background-color: #f2f2f2;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            font-family: 'Noto Sans', sans-serif;
+            color: #333;
+            margin-top: 5px;
+            cursor: pointer;
+        
+            option {
+                color: #333;
+                font-family: 'Noto Sans', sans-serif;
+            }
+        
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+            }
+        
+            &::-ms-expand {
+                display: none;
+            }
+        
+            &::after {
+                content: "\25BC";
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0 1em;
+                background: #ddd;
+                cursor: pointer;
+                pointer-events: none;
+                transition: .25s all ease;
+            }
+        
+            &:hover::after {
+                color: #f39c12;
+            }
+
+        }    
     }
-    .restart-wrapper{
+    .calculator-buttons{
         margin-top: 15px;
-        a{
-            text-decoration: none;
-            display: block;
-            background-color: #276fb6;
-            color:#f2f2f2;
-            padding: 11px 20px;
-            border-radius: 8px;
-            text-align: center;
-            &:hover{
-                background-color: #215b95;
-            }
+        display: flex;
+        gap: 15px;
+        ;
+
+        button{
+            @extend %button_default;
+            width: 100%;
         }
+
     }
+}
+
+%button_default{
+    background-color: #E4822A;
+    border-radius: 10px;
+    border: solid 3px #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 5px rgba(0,0,0,1);
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.4);
 }

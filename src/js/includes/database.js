@@ -168,11 +168,12 @@ const dictionary = [
     }
     
     ];
-
+// this function creates a map od the array and returns the titles only
 const getTitles = () => {
     return dictionary.map((item) => item.title);
 };
 
+// this function returns the data of the group selected
 const getAlimentosFromGroup = (group) => {
     return dictionary.find((item) => item.title === group).data;
 }    

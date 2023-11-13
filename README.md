@@ -1,6 +1,6 @@
-# Greek practice trivia
+# Diet Calculator tool
 
-This is a small and quick project to test vocabulary knowledge for a greek class. If you want to test it you must do as follows:
+This is a small and quick project to replace a food type by another on a diet.
 
 1. Instal dependencies by running command: `npm install`
 1. Deploy:
