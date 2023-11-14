@@ -1,6 +1,8 @@
 import { getTitles, getAlimentosFromGroup } from './database.js'
+import Swal from 'sweetalert2';
 const mainEl = document.getElementById('diet-calculator');
 let alimentos = [];
+let activeGroup = '';
 
 const initApp = () => {
     paintButtons();
@@ -26,6 +28,7 @@ const grabData = () => {
     const alimentoSubstituto = mainEl.querySelector('#alimento-substituto').value;
     const cantidad = mainEl.querySelector('#cantidad').value;
     return {
+        activeGroup,
         alimentoOrigen,
         alimentoSubstituto,
         cantidad
@@ -34,6 +37,7 @@ const grabData = () => {
 
 const paintAlimentosFromGroup = (group) => {
     alimentos = getAlimentosFromGroup(group);
+    activeGroup = group;
     const alimentosHTML = alimentos.map((alimento) => {
         return `<option value="${alimento.alimento}">${alimento.alimento}</option>`;
     });
@@ -59,8 +63,46 @@ const paintAlimentosFromGroup = (group) => {
             paintButtons();
         });
         mainEl.querySelector('button.btn-go-calculate').addEventListener('click', () => {
-            console.log(grabData());
+            calculateDiet();
         });
+}
+
+const calculateDiet = () => {
+    const baseData = grabData();
+
+    if(baseData.cantidad === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Olvidaste poner una cantidad!"
+          });
+        return;
+    }
+    const alimentoOrigen = alimentos.find((alimento) => {
+        return alimento.alimento === baseData.alimentoOrigen;
+    });
+    const alimentoSubstituto = alimentos.find((alimento) => {
+        return alimento.alimento === baseData.alimentoSubstituto;
+    });
+    const originDetails = separateAmountFromUnit(alimentoOrigen.cantidad);
+    const substituteDetails = separateAmountFromUnit(alimentoSubstituto.cantidad);
+
+    const newValue = `${(baseData.cantidad * substituteDetails.amount) / originDetails.amount}`;
+    const result = `${baseData.cantidad} ${originDetails.unit} de ${baseData.alimentoOrigen} equivalen a ${parseFloat(newValue).toFixed(2)}${substituteDetails.unit} de ${baseData.alimentoSubstituto}`;
+    Swal.fire({
+        icon: "success",
+        title: "Resultado",
+        text: `${result}`
+      });
+}
+
+const separateAmountFromUnit = (string) => {
+    const amount = parseInt(string.replace(/\D/g,''));
+    const unit = string.replace(/[0-9]/g, '');
+    return {
+        amount,
+        unit
+    }
 }
 
 export { initApp }

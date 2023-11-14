@@ -99,8 +99,11 @@ html, body {
             @extend %button_default;
             width: 100%;
         }
-
     }
+}
+
+.swal2-actions button.swal2-confirm.swal2-styled{
+    background-color: #E4822A;
 }
 
 %button_default{
