@@ -175,7 +175,17 @@ const getTitles = () => {
 
 // this function returns the data of the group selected
 const getAlimentosFromGroup = (group) => {
-    return dictionary.find((item) => item.title === group).data;
+    const data = dictionary.find((item) => item.title === group).data;
+    // return sorted data
+    return data.sort((a, b) => {
+        if (a.alimento < b.alimento) {
+            return -1;
+        }
+        if (a.alimento > b.alimento) {
+            return 1;
+        }
+        return 0;
+    });
 }    
 
 export { getAlimentosFromGroup, getTitles };
